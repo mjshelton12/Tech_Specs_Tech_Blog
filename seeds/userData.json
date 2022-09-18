@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Jerry",
+      "email": "whatsupwiththat@gmail.com",
+      "password": "password54321"
+    },
+    {
+      "name": "George",
+      "email": "g.whataday@gmail.com",
+      "password": "password54321"
+    },
+    {
+      "name": "Elaine",
+      "email": "e.laine@gmail.com",
+      "password": "password54321"
+    }
+  ]
