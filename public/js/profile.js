@@ -1,3 +1,5 @@
+var deleteBtn = document.querySelector('.btn-danger')
+
 const newForm = async (event) => {
     event.preventDefault();
   
@@ -41,7 +43,8 @@ const newForm = async (event) => {
     .querySelector('.new-post-form')
     .addEventListener('submit', newForm);
   
-  document
+  if (deleteBtn) {
+    document
     .querySelector('.post-list')
     .addEventListener('click', deleteButton);
-  
+  }

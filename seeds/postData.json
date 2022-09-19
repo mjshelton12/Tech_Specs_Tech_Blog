@@ -1,15 +1,18 @@
 [
   {
     "title": "Computers are Amazing",
-    "contents": "They turn code into MAGIC!"
+    "contents": "They turn code into MAGIC!",
+    "user_id": 3
   },
   {
     "title": "Snakecase and Phyton",
-    "contents": "A coincidence or are snakes taking over the dark web?"
+    "contents": "A coincidence or are snakes taking over the dark web?",
+    "user_id": 2
   },
   {
     "title": "Can Code Cure Cancer?",
-    "contents": "Probably not but lets talk about it."
+    "contents": "Probably not but lets talk about it.",
+    "user_id": 1
   }
   ]
   
