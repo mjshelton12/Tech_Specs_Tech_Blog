@@ -1,14 +1,13 @@
 const newForm = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
-    const description = document.querySelector('#project-desc').value.trim();
+    const title = document.querySelector('#post-title').value.trim();
+    const contents = document.querySelector('#post-body').value.trim();
   
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/projects`, {
+    if (title && contents) {
+      const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ title, contents }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -17,7 +16,7 @@ const newForm = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Unable to create project');
+        alert('Unable to create post');
       }
     }
   };
@@ -26,23 +25,23 @@ const newForm = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Unable to delete project');
+        alert('Unable to delete post');
       }
     }
   };
   
   document
-    .querySelector('.new-project-form')
+    .querySelector('.new-post-form')
     .addEventListener('submit', newForm);
   
   document
-    .querySelector('.project-list')
+    .querySelector('.post-list')
     .addEventListener('click', deleteButton);
   
