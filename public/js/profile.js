@@ -1,6 +1,6 @@
 var deleteBtn = document.querySelector('.btn-danger')
 
-const newForm = async (event) => {
+const newPost = async (event) => {
     event.preventDefault();
   
     const title = document.querySelector('#post-title').value.trim();
@@ -23,7 +23,7 @@ const newForm = async (event) => {
     }
   };
   
-  const deleteButton = async (event) => {
+  const deletePost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -41,10 +41,10 @@ const newForm = async (event) => {
   
   document
     .querySelector('.new-post-form')
-    .addEventListener('submit', newForm);
+    .addEventListener('submit', newPost);
   
   if (deleteBtn) {
     document
     .querySelector('.post-list')
-    .addEventListener('click', deleteButton);
+    .addEventListener('click', deletePost);
   }
