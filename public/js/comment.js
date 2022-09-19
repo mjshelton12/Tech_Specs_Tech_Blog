@@ -1,7 +1,10 @@
 const newComment = async (event) => {
     event.preventDefault();
-  
+
+    // const postId = 
     const contents = document.querySelector('#comment-text').value.trim();
+
+    console.log(contents)
   
     if (contents) {
       const response = await fetch(`/api/comments`, {
@@ -13,7 +16,7 @@ const newComment = async (event) => {
       });
   
       if (response.ok) {
-        document.location.reload
+        document.location.reload()
       } else {
         alert('Unable to create comment');
       }
