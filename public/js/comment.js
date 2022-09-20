@@ -1,7 +1,7 @@
 const newComment = async (event) => {
     event.preventDefault();
 
-    const postId = doccument.querySelector('[data-post-id]').getAttribute('data-post-id')
+    const postId = document.querySelector('[data-post-id]').getAttribute('data-post-id')
     const contents = document.querySelector('#comment-text').value.trim();
 
     console.log(contents)
