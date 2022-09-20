@@ -1,13 +1,13 @@
 const newComment = async (event) => {
     event.preventDefault();
 
-    // const postId = 
+    const postId = doccument.querySelector('[data-post-id]').getAttribute('data-post-id')
     const contents = document.querySelector('#comment-text').value.trim();
 
     console.log(contents)
   
     if (contents) {
-      const response = await fetch(`/api/comments`, {
+      const response = await fetch(`/api/comments/${postId}`, {
         method: 'POST',
         body: JSON.stringify({ contents }),
         headers: {
@@ -40,5 +40,5 @@ const newComment = async (event) => {
   };
   
   document
-    .querySelector('.new-post-form')
+    .querySelector('.new-comment-form')
     .addEventListener('submit', newComment);
