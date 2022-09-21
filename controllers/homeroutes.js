@@ -46,6 +46,27 @@ router.get('/post/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/comment/:id', withAuth, async (req, res) => {
+  try {
+    const commentData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    res.render('post', { 
+      comments, 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {

@@ -15,17 +15,17 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// router.post('/:postId', withAuth, async (req, res) => {
-//   try {
-//     console.log('req params', req.params)
-//     const newCmment = await Comment.create({
-//       ...req.body,
-//       post_id: req.params.postId
-//     })
-//   } catch (err) {
-//     console.log('Comment Error')
-//   }
-// })
+router.post('/:postId', withAuth, async (req, res) => {
+  try {
+    console.log('req params', req.params)
+    const newCmment = await Comment.create({
+      ...req.body,
+      post_id: req.params.postId
+    })
+  } catch (err) {
+    console.log('Comment Error')
+  }
+})
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

@@ -3,5 +3,15 @@
         "contents": "Interesting point.",
         "post_id": 1,
         "user_id": 1
+    },
+    {
+        "contents": "Thought provoking.",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "contents": "Well researched.",
+        "post_id": 3,
+        "user_id": 1
     }
 ]
