@@ -2,6 +2,22 @@ const router = require('express').Router();
 const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/:id/', async (req, res) => {
+  try {
+    const postData = await Post.findOne({where: {id :req.params.id},
+      include: [Comment]
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with that id' });
+      return;
+    }
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({

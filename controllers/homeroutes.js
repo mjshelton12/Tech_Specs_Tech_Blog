@@ -46,21 +46,16 @@ router.get('/post/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/comment/:id', withAuth, async (req, res) => {
+router.get('/comment/:id', async (req, res) => {
   try {
-    const commentData = await Comment.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const commentData = await Comment.findOne({where: {id: req.params.id}
     });
 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const comment = commentData.get({ plain: true });
 
-    res.render('post', { 
-      comments, 
+    res.render('comment', {
+      ...comment,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);

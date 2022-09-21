@@ -5,13 +5,13 @@
   <div>
   <div>
     <h3>Comments:</h3>
-  {{#if comment.length}}
-  <div class="post-list">
+  {{#if comments.length}}
+  <div>
 
   {{#each comments as |comment|}}
     <div>
       <div>
-        <h4><a href="/comment/{{comment.id}}">{{comment.contents}}</a></h4>
+        <p><a href="/comment/{{comment.id}}">{{comment.contents}}</a></p>
       </div>
       <div>
         <button class="btn btn-danger" data-id="{{comment.id}}">DELETE</button>

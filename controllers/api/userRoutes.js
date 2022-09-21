@@ -1,5 +1,21 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
+
+router.get('/:id/', async (req, res) => {
+  try {
+    const userData = await User.findOne({where: {id :req.params.id},
+      include: [Post]
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: 'No character found with that id' });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
