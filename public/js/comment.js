@@ -23,7 +23,7 @@ const newComment = async (event) => {
       console.table('here is data', data)
 
       if (response.ok) {
-        // document.location.reload()
+        document.location.reload()
         //  console.log(response)
       // console.log(JSON.stringify(response))
       // console.log(JSON.parse(response))
