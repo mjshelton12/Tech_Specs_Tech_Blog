@@ -11,7 +11,8 @@
   {{#each comments as |comment|}}
     <div>
       <div>
-        <p><a href="/comment/{{comment.id}}">{{comment.contents}}</a></p>
+        <p>{{comment.contents}}</p>
+        <p>Written by: {{comment.user.name}} on {{format_date comment.date_created}}</p>
       </div>
       <div>
         <button class="btn btn-danger" data-id="{{comment.id}}">DELETE</button>
