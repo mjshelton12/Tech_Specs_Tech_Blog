@@ -12,7 +12,7 @@
     <div>
       <div>
         <p>{{comment.contents}}</p>
-        <p>Written by: {{comment.user.name}} on {{format_date comment.date_created}}</p>
+        <p>Written by {{comment.user.name}} on {{format_date comment.date_created}}</p>
       </div>
       <div>
         <button class="btn btn-danger" data-id="{{comment.id}}">DELETE</button>
