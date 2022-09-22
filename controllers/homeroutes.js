@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -32,11 +32,15 @@ router.get('/post/:id', withAuth, async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment
+        },
       ],
     });
 
     const post = postData.get({ plain: true });
-
+    console.log("!!!* :))))", post)
+    console.table(post)
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in
@@ -48,12 +52,18 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
 router.get('/comment/:id', async (req, res) => {
   try {
-    const commentData = await Comment.findOne({where: {id: req.params.id}
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
     const comment = commentData.get({ plain: true });
 
-    res.render('comment', {
+    res.render('post', {
       ...comment,
       logged_in: req.session.logged_in
     });
@@ -64,7 +74,7 @@ router.get('/comment/:id', async (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(1, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }],
     });

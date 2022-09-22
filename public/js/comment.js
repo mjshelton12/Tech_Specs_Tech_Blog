@@ -1,3 +1,7 @@
+/*
+We want to make a get route for the comments and retrieve the comments and see if we can log them in the console 
+*/
+
 const newComment = async (event) => {
     event.preventDefault();
 
@@ -14,9 +18,18 @@ const newComment = async (event) => {
           'Content-Type': 'application/json',
         },
       });
-  
+
+      const data = await response.json()
+      console.table('here is data', data)
+
       if (response.ok) {
-        document.location.reload()
+        // document.location.reload()
+        //  console.log(response)
+      // console.log(JSON.stringify(response))
+      // console.log(JSON.parse(response))
+      // console.log(JSON.stringify(JSON.parse(response)))
+      // console.log(JSON.parse(JSON.stringify(response)))
+      console.log("hi", data)
       } else {
         alert('Unable to create comment');
       }
