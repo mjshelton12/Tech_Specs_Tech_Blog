@@ -14,11 +14,13 @@
         <a href="/">Tech Specs Blog</a>
       </h1>
       <nav>
+        <a href="/">Homepage</a>
         {{#if logged_in}}
-        <a href="/profile">my dashboard</a>
-        <button class="no-button" id="logout">logout</button>
+        <a href="/profile">My Dashboard</a>
+        <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">My Dashboard</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
@@ -26,13 +28,17 @@
       {{{ body }}}
     </main>
     <footer>
-      
+
     </footer>
   </div>
-
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+  <nav>
+    <a href="/">Homepage</a>
+    {{#if logged_in}}
+    <a href="/profile">My Dashboard</a>
+    <button class="no-button" id="logout">Logout</button>
+    {{else}}
+    <a href="/login">My Dashboard</a>
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
 </html>
